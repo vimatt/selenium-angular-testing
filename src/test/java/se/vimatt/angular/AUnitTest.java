@@ -1,35 +1,39 @@
 package se.vimatt.angular;
 
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+
+import se.vimatt.util.SparkServer;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created by victormattsson on 2016-03-21.
  */
 public class AUnitTest {
 
-    ChromeDriver driver;
-    RMAngularDriver rmAngularDriver;
+    static ChromeDriver driver;
+    static RMAngularDriver rmAngularDriver;
 
-    @BeforeSuite
-    public void before() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
-        rmAngularDriver = new RMAngularDriver(driver);
+    @BeforeClass
+    public static void before() {
+    	driver = new ChromeDriver();
+    	driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+    	rmAngularDriver = new RMAngularDriver(driver);
+    	SparkServer.start();
     }
 
-    @AfterSuite
-    public void afterClass() {
-        driver.quit();
+    @AfterClass
+    public static void afterClass() {
+    	driver.quit();
+        SparkServer.close();
     }
 
     @Test
@@ -38,11 +42,11 @@ public class AUnitTest {
         driver.get("http://localhost:9090");
         rmAngularDriver.waitforAngularJS();
 
-        assertEquals("Demo Site", driver.getTitle());
+        assertEquals(driver.getTitle(), "Demo Site");
     }
 
     @Test
-    public void favoriteMoviesData() {
+    public void favoriteMoviesData() throws InterruptedException {
 
         driver.get("http://localhost:9090/#/favorites");
         rmAngularDriver.waitforAngularJS();
