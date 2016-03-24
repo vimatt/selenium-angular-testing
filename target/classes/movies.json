@@ -1,0 +1,39 @@
+{
+  "movies" : [
+    {
+      "title": "Fargo",
+      "year": "1996",
+      "genre": "Crime, Drama, Thriller",
+      "runtime": "98 min",
+      "rating": "8.2"
+    },
+    {
+      "title": "Men in Black",
+      "year": "1997",
+      "genre": "Comedy, Sci-Fi",
+      "runtime": "98 min",
+      "rating": "7.3"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": "2003",
+      "genre": "Adventure, Drama, Fantasy",
+      "runtime": "201 min",
+      "rating": "8.9"
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "year": "1994",
+      "genre": "Crime, Drama",
+      "runtime": "142 min",
+      "rating": "9.3"
+    },
+    {
+      "title": "Léon: The Professional",
+      "year": "1994",
+      "genre": "Crime, Drama, Thriller",
+      "runtime": "110 min",
+      "rating": "8.6"
+    }
+  ]
+}

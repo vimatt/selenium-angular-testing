@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header" id="header">Favorite Movies</h1>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Genre</th>
+                <th>Runtime</th>
+                <th>Rating</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="movie in movies">
+                <td>{{movie.title}}</td>
+                <td>{{movie.year}}</td>
+                <td>{{movie.genre}}</td>
+                <td>{{movie.runtime}}</td>
+                <td>{{movie.rating}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-if="dataLoading === true">
+        <p>Data loading deliberately for 2 seconds...</p>
+    </div><br>
+
+</div>
+
+<a href="#/search" class="btn btn-primary" role="button">Back to Search</a>
+
