@@ -29,7 +29,7 @@ public class MovieService {
         JsonObject object;
         try {
             JsonParser parser = new JsonParser();
-            JsonElement jsonElement = parser.parse(new FileReader("src/main/resources/movies.json"));
+            JsonElement jsonElement = parser.parse(new FileReader("src/test/resources/movies.json"));
             object = jsonElement.getAsJsonObject();
 
             for (JsonElement element : object.get("movies").getAsJsonArray()) {
