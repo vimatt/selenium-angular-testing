@@ -9,7 +9,6 @@ import static spark.Spark.*;
  * Created by victormattsson on 2016-03-22.
  */
 public class UserController {
-    JsonUtil asd = new JsonUtil();
 
     public UserController(final UserService service) {
 

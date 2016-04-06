@@ -8,8 +8,10 @@ import se.vimatt.util.SparkServer;
  */
 public class Main {
 
+    private Main() {}
+
     public static void main(String[] args) {
         SparkServer.start();
-        new MovieController(new MovieService());
+        new MediaController(new MediaService());
     }
 }

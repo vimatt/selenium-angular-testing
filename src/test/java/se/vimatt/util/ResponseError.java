@@ -5,7 +5,7 @@ package se.vimatt.util;
  */
 public class ResponseError {
 
-    private String message;
+    private final String message;
 
     public ResponseError(String message, String... args) {
         this.message = String.format(message, args);

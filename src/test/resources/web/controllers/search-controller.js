@@ -15,6 +15,13 @@ angular.module('demoSite.search', ['ngRoute'])
         $scope.search = '';
         $scope.season = '';
         $scope.year = '';
+        $scope.types = {
+            availableTypes: [
+                {id: '1', name: 'movies'},
+                {id: '2', name: 'series'}
+            ],
+            selectedType: {id: '1', name: 'movies'}
+        };
         var queryString = '';
 
         $scope.$watchGroup(['search', 'season', 'type', 'year'], function () {

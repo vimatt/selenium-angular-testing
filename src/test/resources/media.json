@@ -1,0 +1,76 @@
+{
+  "movies" : [
+    {
+      "title": "Fargo",
+      "year": "1996",
+      "genre": "Crime, Drama, Thriller",
+      "runtime": "98 min",
+      "rating": "8.2"
+    },
+    {
+      "title": "Men in Black",
+      "year": "1997",
+      "genre": "Comedy, Sci-Fi",
+      "runtime": "98 min",
+      "rating": "7.3"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": "2003",
+      "genre": "Adventure, Drama, Fantasy",
+      "runtime": "201 min",
+      "rating": "8.9"
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "year": "1994",
+      "genre": "Crime, Drama",
+      "runtime": "142 min",
+      "rating": "9.3"
+    },
+    {
+      "title": "Léon: The Professional",
+      "year": "1994",
+      "genre": "Crime, Drama, Thriller",
+      "runtime": "110 min",
+      "rating": "8.6"
+    }
+  ],
+  "series" : [
+    {
+      "title": "True Detective",
+      "year": "2014-",
+      "genre": "Crime, Drama, Mystery",
+      "runtime": "55 min",
+      "rating": "9.1"
+    },
+    {
+      "title": "Game of Thrones",
+      "year": "2011-",
+      "genre": "Adventure, Drama, Fantasy",
+      "runtime": "56 min",
+      "rating": "9.5"
+    },
+    {
+      "title": "Supernatural",
+      "year": "2005",
+      "genre": "Drama, Fantasy, Horror",
+      "runtime": "44 min",
+      "rating": "8.6"
+    },
+    {
+      "title": "Star Trek: The Next Generation",
+      "year": "1987-1994",
+      "genre": "Action, Adventure, Mystery",
+      "runtime": "44 min",
+      "rating": "8.7"
+    },
+    {
+      "title": "Star Trek: Voyager",
+      "year": "1995-2001",
+      "genre": "Action, Adventure, Sci-Fi",
+      "runtime": "45 min",
+      "rating": "7.7"
+    }
+  ]
+}

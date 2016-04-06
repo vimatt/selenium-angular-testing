@@ -3,7 +3,7 @@ package se.vimatt.webservice;
 /**
  * Created by victormattsson on 2016-03-22.
  */
-public class Movie {
+public class Media {
 
     private String title;
     private String year;

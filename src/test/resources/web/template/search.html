@@ -2,7 +2,8 @@
 
     <div class="col-lg-3">
         <div class="input-group">
-            <input class="form-control" type="text" ng-model="search" placeholder="search for.." autofocus>
+            <input id="search-field" class="form-control" type="text" ng-model="search" placeholder="search for.."
+                   autofocus>
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">Search</button>
         </span>
@@ -16,16 +17,22 @@
         </div>
     </div>
 
-    <p><a href="#/favorites/"
-          class="btn btn-primary btn-sm pull-right"
-          role="button">Watch Favorite Movies</a></p>
+    <div class="pull-right">
+        <label for="plot-select">Top 5: </label>
+        <select id="plot-select" name="plot-select"
+                ng-options="types.name for types in types.availableTypes track by types.id"
+                ng-model="types.selectedType"></select>
+    <p><a href="#/favorites/{{types.selectedType.name}}"
+          class="btn btn-primary btn-sm"
+          role="button">Watch Favorite {{types.selectedType.name | uppercase}}</a></p>
+    </div>
 
 </div>
 
 <div class="radio">
     <label><input type="radio" ng-model="type" value="movie">Movie</label>
     <label><input type="radio" ng-model="type" value="series">Series</label>
-    <h3>You are searching for {{type}}: {{search}}</h3><br>
+    <h3>You are searching for a {{type | uppercase}}: {{search}}</h3><br>
 </div>
 
 <div ng-if="allData.Response === 'False' && search !== ''">
