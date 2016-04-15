@@ -3,9 +3,9 @@
     <div class="col-lg-3">
         <div class="input-group">
             <input id="search-field" class="form-control" type="text" ng-model="search" placeholder="search for.."
-                   autofocus>
+                   ng-keyup="fetch()" autofocus>
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Search</button>
+          <button id="search-btn" class="btn btn-default" type="button" ng-click="fetch()">Search</button>
         </span>
 
         </div>
@@ -23,7 +23,7 @@
                 ng-options="types.name for types in types.availableTypes track by types.id"
                 ng-model="types.selectedType"></select>
     <p><a href="#/favorites/{{types.selectedType.name}}"
-          class="btn btn-primary btn-sm"
+          class="btn btn-primary btn-sm" id="favorites-button"
           role="button">Watch Favorite {{types.selectedType.name | uppercase}}</a></p>
     </div>
 

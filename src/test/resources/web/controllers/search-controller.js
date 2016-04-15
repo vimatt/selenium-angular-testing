@@ -25,15 +25,15 @@ angular.module('demoSite.search', ['ngRoute'])
         var queryString = '';
 
         $scope.$watchGroup(['search', 'season', 'type', 'year'], function () {
-            fetch();
+            $scope.fetch();
         });
 
-        function fetch() {
+        $scope.fetch = function() {
             setSearchQuery();
             Data.getData(queryString).then(function (response) {
                 $scope.allData = response.data;
             });
-        }
+        };
 
         function setSearchQuery() {
             switch ($scope.type) {

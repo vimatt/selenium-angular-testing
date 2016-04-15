@@ -22,6 +22,7 @@ public class MediaService {
         return getJsonDataAsList("series");
     }
 
+    //This method reads a json file and depending on the given type
     private List<Media> getJsonDataAsList(String type) {
         List<Media> media = new ArrayList<>();
         JsonObject object;

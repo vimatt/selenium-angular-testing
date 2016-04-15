@@ -1,4 +1,4 @@
-package se.vimatt.angular;
+package se.vimatt.angular.auto;
 
 
 import org.junit.AfterClass;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by victormattsson on 2016-03-21.
  */
-public class AUnitTest {
+public class DemoSiteTest {
 
     private static WebDriver driver;
     private static RMAngularDriver rmAngularDriver;
