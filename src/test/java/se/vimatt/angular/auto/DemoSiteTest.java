@@ -82,12 +82,10 @@ public class DemoSiteTest {
         rmAngularDriver.waitforAngular();
 
         WebElement bindingElements = driver.findElement(ByAngular.binding("search"));
-        System.out.println(bindingElements.getText());
         assertEquals("You are searching for a MOVIE:", bindingElements.getText());
 
         WebElement searchInput = driver.findElement(ByAngular.model("search"));
         searchInput.sendKeys("Men in Black");
-        System.out.println(bindingElements.getText());
         assertEquals("You are searching for a MOVIE: Men in Black", bindingElements.getText());
     }
 
@@ -110,10 +108,6 @@ public class DemoSiteTest {
         List<WebElement> repeater = driver.findElements(ByAngular.repeater("movie in movies"));
 
         driver.findElements(ByAngular.repeater("movie in movies").row(1));
-
-        for (WebElement element : repeater) {
-            System.out.println(element.getText());
-        }
     }
 
     @Test
@@ -122,8 +116,6 @@ public class DemoSiteTest {
         rmAngularDriver.waitforAngular();
 
         WebElement el = driver.findElement(ByAngular.repeater("movie in movies").row(1));
-
-        System.out.println(el.getText());
     }
 
     @Test
@@ -132,7 +124,5 @@ public class DemoSiteTest {
         rmAngularDriver.waitforAngular();
 
         WebElement el = driver.findElement(ByAngular.repeater("movie in movies").row(1).column(2));
-
-        System.out.println(el.getText());
     }
 }
