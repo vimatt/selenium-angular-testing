@@ -13,6 +13,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import se.vimatt.util.SparkServer;
 
 import java.util.HashMap;
@@ -34,6 +36,7 @@ public class RunnerTest {
     @BeforeClass
     public static void before() {
         driver = new RMAngularDriver(new ChromeDriver());
+        driver.manage().window().maximize();
         SparkServer.start();
     }
 
@@ -136,6 +139,7 @@ public class RunnerTest {
             WebElement el = driver.findElement(aliasLocations.get(element));
             el.click();
             el.sendKeys(data);
+//            el.sendKeys(Keys.SPACE);
         }
 
         @Given("^input \"([^\"]*)\" to the angular element \"([^\"]*)\"$")
@@ -143,6 +147,7 @@ public class RunnerTest {
             WebElement el = driver.findElement(angularAliasLocations.get(element));
             el.click();
             el.sendKeys(data);
+//            el.sendKeys(Keys.SPACE);
         }
 
         @And("^we wait for (\\d+) milliseconds$")

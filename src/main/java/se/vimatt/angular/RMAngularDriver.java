@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import se.vimatt.angular.element.AngularElement;
+
 import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebDriver.TargetLocator;
@@ -84,7 +87,7 @@ public class RMAngularDriver implements WebDriver {
 		if(sync){
 			waitforAngular();
 		}
-		return driver.findElement(by);
+		return new AngularElement(this, driver.findElement(by));
 	}
 
 	@Override
@@ -92,7 +95,12 @@ public class RMAngularDriver implements WebDriver {
 		if(sync){
 			waitforAngular();
 		}
-		return driver.findElements(by);
+		List<WebElement> findElements = driver.findElements(by);
+		for (int i = 0; i < findElements.size(); i++) {
+			WebElement webElement = findElements.get(i);
+			findElements.set(i, new AngularElement(this, webElement));
+		}
+		return findElements;
 	}
 
 	@Override
@@ -147,5 +155,13 @@ public class RMAngularDriver implements WebDriver {
 	
 	public void angularSync(boolean shouldSync){
 		this.sync = shouldSync; 
+	}
+	
+	public boolean angularSync(){
+		return this.sync;
+	}
+
+	public void waitforAngularIfSync() {
+		if(sync) waitforAngular();
 	}
 }
