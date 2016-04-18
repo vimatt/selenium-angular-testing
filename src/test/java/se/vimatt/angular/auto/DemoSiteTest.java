@@ -28,7 +28,7 @@ public class DemoSiteTest {
 
     @BeforeClass
     public static void before() {
-    	driver = new FirefoxDriver();
+    	driver = new ChromeDriver();
     	rmAngularDriver = new RMAngularDriver(driver);
     	SparkServer.start();
     }

@@ -35,6 +35,7 @@ Feature: Auto tests of the Demo Site
     And that we know the element with the "id" named "season-search" as "search-button"
     And click the element "search-button"
     And that we know the element with the "id" named "go-to-season" as "go"
+    And we wait for angular
     And click the element "go"
     And that we know the angular element with the "repeater" named "episode in seasonData.Episodes" as "episodes"
     Then there should be 8 elements in repeater element "episodes"
