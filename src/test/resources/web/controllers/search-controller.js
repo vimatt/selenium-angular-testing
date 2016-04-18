@@ -9,7 +9,7 @@ angular.module('demoSite.search', ['ngRoute'])
         });
     }])
 
-    .controller('SearchController', ['$scope', '$http', 'Data', 'Season', function ($scope, $http, Data, Season) {
+    .controller('SearchController', ['$scope', '$http', 'Data', 'Season', '$timeout',  function ($scope, $http, Data, Season, $timeout) {
 
         $scope.type = 'movie';
         $scope.search = '';
@@ -23,9 +23,14 @@ angular.module('demoSite.search', ['ngRoute'])
             selectedType: {id: '1', name: 'movies'}
         };
         var queryString = '';
-
+        var timeoutPromise;
+        var timetoutDelayMs = 150;
         $scope.$watchGroup(['search', 'season', 'type', 'year'], function () {
+          $timeout.cancel(timeoutPromise);
+          timeoutPromise = $timeout(function(){
+            console.log('fetching data');
             $scope.fetch();
+          }, timetoutDelayMs);
         });
 
         $scope.fetch = function() {

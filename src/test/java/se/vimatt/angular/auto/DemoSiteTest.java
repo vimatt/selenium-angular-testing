@@ -2,13 +2,13 @@ package se.vimatt.angular.auto;
 
 
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import se.vimatt.angular.ByAngular;
 import se.vimatt.angular.RMAngularDriver;
 import se.vimatt.util.SparkServer;
@@ -22,30 +22,32 @@ import static org.junit.Assert.assertEquals;
  */
 public class DemoSiteTest {
 
-    private static WebDriver driver;
     private static RMAngularDriver rmAngularDriver;
     private final String LOCALHOST = "http://localhost:9090";
 
     @BeforeClass
     public static void before() {
-    	driver = new ChromeDriver();
-    	rmAngularDriver = new RMAngularDriver(driver);
+    	rmAngularDriver = new RMAngularDriver(new ChromeDriver());
     	SparkServer.start();
     }
 
     @AfterClass
     public static void afterClass() {
-    	driver.quit();
+    	rmAngularDriver.quit();
         SparkServer.close();
+    }
+    @Before
+    public void setupDriver(){
+    	rmAngularDriver.angularSync(true);
     }
 
     @Test
     public void pageTitle() {
 
-        driver.get(LOCALHOST);
-        rmAngularDriver.waitforAngular();
+        rmAngularDriver.get(LOCALHOST);
+        
 
-        assertEquals("Demo Site", driver.getTitle());
+        assertEquals("Demo Site", rmAngularDriver.getTitle());
     }
 
     /**
@@ -54,48 +56,56 @@ public class DemoSiteTest {
      */
     @Test
     public void waitForAngularDemo() {
-
-        driver.get(LOCALHOST + "/#/favorites/movies");
-        rmAngularDriver.waitforAngular();
-
-        WebElement element = driver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
+        rmAngularDriver.get(LOCALHOST + "/#/favorites/movies");
+        
+        WebElement element = rmAngularDriver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
         String firstMovieTitle = element.getText();
 
         assertEquals(firstMovieTitle, "Fargo");
+    }
+    
+    /**
+     * This test displays that the waitForAngular works, since the http response on this URL
+     * is set to sleep for 500 milliseconds. Without the wait method the test would fail. And this test will
+     */
+    @Test(expected=NoSuchElementException.class)
+    public void waitForAngularDemoBeToSlow() {
+        rmAngularDriver.get(LOCALHOST + "/#/favorites/movies");
+        rmAngularDriver.angularSync(false);
+        rmAngularDriver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
     }
 
     @Test
     public void byAngularModel() throws InterruptedException {
 
-        driver.get(LOCALHOST);
-        rmAngularDriver.waitforAngular();
+        rmAngularDriver.get(LOCALHOST);
+        
 
-        WebElement modelElement = driver.findElement(ByAngular.model("search"));
+        WebElement modelElement = rmAngularDriver.findElement(ByAngular.model("search"));
         modelElement.sendKeys("Fargo");
-        Thread.sleep(3000);
-        WebElement inputElement = driver.findElement(By.id("search-field"));
+        WebElement inputElement = rmAngularDriver.findElement(By.id("search-field"));
         assertEquals("Fargo", inputElement.getAttribute("value"));
     }
 
     @Test
     public void byAngularBinding() {
-        driver.get(LOCALHOST);
-        rmAngularDriver.waitforAngular();
+        rmAngularDriver.get(LOCALHOST);
+        
 
-        WebElement bindingElements = driver.findElement(ByAngular.binding("search"));
+        WebElement bindingElements = rmAngularDriver.findElement(ByAngular.binding("search"));
         assertEquals("You are searching for a MOVIE:", bindingElements.getText());
 
-        WebElement searchInput = driver.findElement(ByAngular.model("search"));
+        WebElement searchInput = rmAngularDriver.findElement(ByAngular.model("search"));
         searchInput.sendKeys("Men in Black");
         assertEquals("You are searching for a MOVIE: Men in Black", bindingElements.getText());
     }
 
     @Test
     public void byAngularOptions() {
-        driver.get(LOCALHOST);
-        rmAngularDriver.waitforAngular();
+        rmAngularDriver.get(LOCALHOST);
+        
 
-        List<WebElement> options = driver.findElements(ByAngular.options("types.name for types in types" +
+        List<WebElement> options = rmAngularDriver.findElements(ByAngular.options("types.name for types in types" +
                 ".availableTypes track by types.id"));
         assertEquals("movies", options.get(0).getText());
         assertEquals("series", options.get(1).getText());
@@ -103,27 +113,24 @@ public class DemoSiteTest {
 
     @Test
     public void byAngularRepeater() {
-        driver.get(LOCALHOST + "/#/favorites/movies");
-        rmAngularDriver.waitforAngular();
+        rmAngularDriver.get(LOCALHOST + "/#/favorites/movies");
+       
+        List<WebElement> repeater = rmAngularDriver.findElements(ByAngular.repeater("movie in movies"));
 
-        List<WebElement> repeater = driver.findElements(ByAngular.repeater("movie in movies"));
-
-        driver.findElements(ByAngular.repeater("movie in movies").row(1));
+        rmAngularDriver.findElements(ByAngular.repeater("movie in movies").row(1));
     }
 
     @Test
     public void byAngularRepeaterRow() {
-        driver.get(LOCALHOST + "/#/favorites/movies");
-        rmAngularDriver.waitforAngular();
+        rmAngularDriver.get(LOCALHOST + "/#/favorites/movies");
 
-        WebElement el = driver.findElement(ByAngular.repeater("movie in movies").row(1));
+        WebElement el = rmAngularDriver.findElement(ByAngular.repeater("movie in movies").row(1));
     }
 
     @Test
     public void byAngularRepeaterCell() {
-        driver.get(LOCALHOST + "/#/favorites/movies");
-        rmAngularDriver.waitforAngular();
+        rmAngularDriver.get(LOCALHOST + "/#/favorites/movies");
 
-        WebElement el = driver.findElement(ByAngular.repeater("movie in movies").row(1).column(2));
+        WebElement el = rmAngularDriver.findElement(ByAngular.repeater("movie in movies").row(1).column(2));
     }
 }

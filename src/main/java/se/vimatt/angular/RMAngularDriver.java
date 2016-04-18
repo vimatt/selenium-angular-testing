@@ -1,8 +1,15 @@
 package se.vimatt.angular;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver.Navigation;
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.WebDriver.TargetLocator;
 
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -10,29 +17,33 @@ import java.util.concurrent.TimeUnit;
  *
  * Created by victormattsson on 2016-03-21.
  */
-public class RMAngularDriver {
+public class RMAngularDriver implements WebDriver {
 
-    private JavascriptExecutor driver;
+    private JavascriptExecutor jSExecutor;
+	private WebDriver driver;
+	private boolean sync;
 
     //The constructor takes the given WebDriver and sets an implicit wait which tells
     //the driver to wait in this case for 30 secs until throwing an exception if it can't find the element.
     //Then we cast the driver to a Selenium JavascriptExecutor
     public RMAngularDriver(WebDriver driver) {
-        driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
-        this.driver = (JavascriptExecutor) driver;
+        this.driver = driver;
+		driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+        this.jSExecutor = (JavascriptExecutor) driver;
+        this.sync = true;
     }
 
     //This second constructor makes it possible for the user to set the wait time manually
     public RMAngularDriver(WebDriver driver, int timeOut) {
         driver.manage().timeouts().setScriptTimeout(timeOut, TimeUnit.SECONDS);
-        this.driver = (JavascriptExecutor) driver;
+        this.jSExecutor = (JavascriptExecutor) driver;
     }
 
     //The waitForAngular method uses the Selenium JavascriptExecutor which enables us to inject
     //javascript into our browser and in this case wait until angular has finished loading and
     //is available for testing
     public void waitforAngular() {
-        driver.executeAsyncScript(
+    	jSExecutor.executeAsyncScript(
                 "var callback = arguments[arguments.length - 1];" +
                 "var rootSelector = 'body';" +
                 "var el = document.querySelector(rootSelector);" +
@@ -62,4 +73,79 @@ public class RMAngularDriver {
                 "        callback(err.message);" +
                 "    }");
     }
+    
+    @Override
+	public void close() {
+		driver.close();
+	}
+
+	@Override
+	public WebElement findElement(By by) {
+		if(sync){
+			waitforAngular();
+		}
+		return driver.findElement(by);
+	}
+
+	@Override
+	public List<WebElement> findElements(By by) {
+		if(sync){
+			waitforAngular();
+		}
+		return driver.findElements(by);
+	}
+
+	@Override
+	public void get(String url) {
+		driver.get(url);
+	}
+
+	@Override
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+
+	@Override
+	public String getPageSource() {
+		return driver.getPageSource();
+	}
+
+	@Override
+	public String getTitle() {
+		return driver.getTitle();
+	}
+
+	@Override
+	public String getWindowHandle() {
+		return driver.getWindowHandle();
+	}
+
+	@Override
+	public Set<String> getWindowHandles() {
+		return driver.getWindowHandles();
+	}
+
+	@Override
+	public Options manage() {
+		return driver.manage();
+	}
+
+	@Override
+	public Navigation navigate() {
+		return driver.navigate();
+	}
+
+	@Override
+	public void quit() {
+		driver.quit();
+	}
+
+	@Override
+	public TargetLocator switchTo() {
+		return driver.switchTo();
+	}
+	
+	public void angularSync(boolean shouldSync){
+		this.sync = shouldSync; 
+	}
 }

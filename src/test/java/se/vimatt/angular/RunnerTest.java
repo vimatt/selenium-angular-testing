@@ -24,18 +24,16 @@ import static org.junit.Assert.assertEquals;
  * Created by victormattsson on 2016-03-29.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"}, format = {"json:cucumber.json"}, features = "src/test/resources")
+@CucumberOptions(plugin = {"pretty"}, format = {"json:target/cucumber.json"}, features = "src/test/resources")
 public class RunnerTest {
-
-    private static WebDriver driver;
-    private static RMAngularDriver rmAngularDriver;
+	
+    private static RMAngularDriver driver;
     private static final String LOCALHOST = "http://localhost:9090";
 
 
     @BeforeClass
     public static void before() {
-        driver = new ChromeDriver();
-        rmAngularDriver = new RMAngularDriver(driver);
+        driver = new RMAngularDriver(new ChromeDriver());
         SparkServer.start();
     }
 
@@ -67,7 +65,7 @@ public class RunnerTest {
 
         @Given("^we wait for angular$")
         public void we_wait_for_angular() {
-            rmAngularDriver.waitforAngular();
+            driver.waitforAngular();
         }
 
         @Then("^the first cell in the table should be \"([^\"]*)\"$")
@@ -136,13 +134,15 @@ public class RunnerTest {
         @Given("^input \"([^\"]*)\" to the element \"([^\"]*)\"$")
         public void input_to_the_element(String data, String element) {
             WebElement el = driver.findElement(aliasLocations.get(element));
+            el.click();
             el.sendKeys(data);
-            el.sendKeys(Keys.SPACE);
         }
 
         @Given("^input \"([^\"]*)\" to the angular element \"([^\"]*)\"$")
         public void input_to_the_angular_element(String data, String element) {
-            driver.findElement(angularAliasLocations.get(element)).sendKeys(data);
+            WebElement el = driver.findElement(angularAliasLocations.get(element));
+            el.click();
+            el.sendKeys(data);
         }
 
         @And("^we wait for (\\d+) milliseconds$")
