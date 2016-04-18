@@ -13,7 +13,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import se.vimatt.util.SparkServer;
 
 import java.util.HashMap;
@@ -25,12 +24,13 @@ import static org.junit.Assert.assertEquals;
  * Created by victormattsson on 2016-03-29.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"}, features = "src/test/resources")
+@CucumberOptions(plugin = {"pretty"}, format = {"json:cucumber.json"}, features = "src/test/resources")
 public class RunnerTest {
 
     private static WebDriver driver;
     private static RMAngularDriver rmAngularDriver;
     private static final String LOCALHOST = "http://localhost:9090";
+
 
     @BeforeClass
     public static void before() {

@@ -1,0 +1,2008 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Verify the page title",
+        "description": "",
+        "id": "auto-tests-of-the-demo-site;verify-the-page-title",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 942423335,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 23160000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the title of the page should be \"Demo Site\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Demo Site",
+                  "offset": 33
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_title_of_the_page_should_be(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 7,
+        "name": "Do a movie search and continue to it\u0027s details page",
+        "description": "",
+        "id": "auto-tests-of-the-demo-site;do-a-movie-search-and-continue-to-it\u0027s-details-page",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 298233111,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 17485170,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 258692,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "that we know the element with the \"id\" named \"search-field\" as \"input\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "search-field",
+                  "offset": 46
+                },
+                {
+                  "val": "input",
+                  "offset": 64
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 335005473,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "input \"Fargo\" to the element \"input\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Fargo",
+                  "offset": 7
+                },
+                {
+                  "val": "input",
+                  "offset": 30
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.input_to_the_element(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 499526,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "that we know the element with the \"xpath\" named \"html/body/div/div/div[3]/div[1]/div/div/p[2]/a\" as \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "xpath",
+                  "offset": 35
+                },
+                {
+                  "val": "html/body/div/div/div[3]/div[1]/div/div/p[2]/a",
+                  "offset": 49
+                },
+                {
+                  "val": "button",
+                  "offset": 101
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 147989553,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "click the element \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "button",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 155796735,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 171762,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "that we know the element with the \"css\" named \"[class\u003d\u0027media-title\u0027] \u003e a\" as \"title\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "css",
+                  "offset": 35
+                },
+                {
+                  "val": "[class\u003d\u0027media-title\u0027] \u003e a",
+                  "offset": 47
+                },
+                {
+                  "val": "title",
+                  "offset": 78
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 45061996,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "the text of the element \"title\" should be \"Fargo\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "title",
+                  "offset": 25
+                },
+                {
+                  "val": "Fargo",
+                  "offset": 43
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_element_should_be(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 104504,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "that we know the element with the \"id\" named \"back-btn\" as \"back\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "back-btn",
+                  "offset": 46
+                },
+                {
+                  "val": "back",
+                  "offset": 60
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 67388176,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "click the element \"back\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "back",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10303851,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "the URL should be \"http://localhost:9090/#/search\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/search",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_url_should_be(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 21,
+        "name": "Do a series search and continue to it\u0027s details page, and then to the season page",
+        "description": "",
+        "id": "auto-tests-of-the-demo-site;do-a-series-search-and-continue-to-it\u0027s-details-page,-and-then-to-the-season-page",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 331057365,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 38255342,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 112690,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "that we know the angular element with the \"model\" named \"type\" as \"radio\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "model",
+                  "offset": 43
+                },
+                {
+                  "val": "type",
+                  "offset": 57
+                },
+                {
+                  "val": "radio",
+                  "offset": 67
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 91474182,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "click the 2nd angular element \"radio\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 10
+                },
+                {
+                  "val": "radio",
+                  "offset": 31
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.clickTheNdAngularElement(int,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 102103,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "that we know the element with the \"id\" named \"search-field\" as \"input\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "search-field",
+                  "offset": 46
+                },
+                {
+                  "val": "input",
+                  "offset": 64
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 349935037,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "input \"True Detective\" to the element \"input\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "True Detective",
+                  "offset": 7
+                },
+                {
+                  "val": "input",
+                  "offset": 39
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.input_to_the_element(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 129886,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "that we know the element with the \"xpath\" named \"html/body/div/div/div[3]/div/div/div/p[2]/a\" as \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "xpath",
+                  "offset": 35
+                },
+                {
+                  "val": "html/body/div/div/div[3]/div/div/div/p[2]/a",
+                  "offset": 49
+                },
+                {
+                  "val": "button",
+                  "offset": 98
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 78875070,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "click the element \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "button",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 145298885,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 113717,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "that we know the element with the \"css\" named \"[class\u003d\u0027media-title\u0027] \u003e a\" as \"title\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "css",
+                  "offset": 35
+                },
+                {
+                  "val": "[class\u003d\u0027media-title\u0027] \u003e a",
+                  "offset": 47
+                },
+                {
+                  "val": "title",
+                  "offset": 78
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 45497478,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "the text of the element \"title\" should be \"True Detective\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "title",
+                  "offset": 25
+                },
+                {
+                  "val": "True Detective",
+                  "offset": 43
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_element_should_be(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 81570,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "that we know the angular element with the \"model\" named \"season\" as \"season-search\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "model",
+                  "offset": 43
+                },
+                {
+                  "val": "season",
+                  "offset": 57
+                },
+                {
+                  "val": "season-search",
+                  "offset": 69
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 72304692,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "input \"1\" to the angular element \"season-search\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 7
+                },
+                {
+                  "val": "season-search",
+                  "offset": 34
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.input_to_the_angular_element(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 82290,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "that we know the element with the \"id\" named \"season-search\" as \"search-button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "season-search",
+                  "offset": 46
+                },
+                {
+                  "val": "search-button",
+                  "offset": 65
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66005751,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "click the element \"search-button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "search-button",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 74242,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "that we know the element with the \"id\" named \"go-to-season\" as \"go\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "go-to-season",
+                  "offset": 46
+                },
+                {
+                  "val": "go",
+                  "offset": 64
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 9988347,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 84320177,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "click the element \"go\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "go",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 106953,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "that we know the angular element with the \"repeater\" named \"episode in seasonData.Episodes\" as \"episodes\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "repeater",
+                  "offset": 43
+                },
+                {
+                  "val": "episode in seasonData.Episodes",
+                  "offset": 60
+                },
+                {
+                  "val": "episodes",
+                  "offset": 96
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 62197423,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "there should be 8 elements in repeater element \"episodes\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "8",
+                  "offset": 16
+                },
+                {
+                  "val": "episodes",
+                  "offset": 48
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.there_should_be__elements_in_repeater(int,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 75977,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "that we know the element with the \"id\" named \"back-btn\" as \"back\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "back-btn",
+                  "offset": 46
+                },
+                {
+                  "val": "back",
+                  "offset": 60
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 75071197,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "click the element \"back\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "back",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 18607824,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "the URL should be \"http://localhost:9090/#/series/tt2356777\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/series/tt2356777",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_url_should_be(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 61502315,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "click the element \"back\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "back",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8914212,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "the URL should be \"http://localhost:9090/#/search\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/search",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_url_should_be(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 48,
+        "name": "Watch my favorite movies",
+        "description": "",
+        "id": "auto-tests-of-the-demo-site;watch-my-favorite-movies",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 341366935,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 24659845,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 95208,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "that we know the angular element with the \"options\" named \"types.name for types in types.availableTypes track by types.id\" as \"favorites\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "options",
+                  "offset": 43
+                },
+                {
+                  "val": "types.name for types in types.availableTypes track by types.id",
+                  "offset": 59
+                },
+                {
+                  "val": "favorites",
+                  "offset": 127
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 93170971,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "choose the 1st angular option \"favorites\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 11
+                },
+                {
+                  "val": "favorites",
+                  "offset": 31
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.choose_the_angular_option(int,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 100409,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "that we know the element with the \"id\" named \"favorites-button\" as \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "favorites-button",
+                  "offset": 46
+                },
+                {
+                  "val": "button",
+                  "offset": 68
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 103989901,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "click the element \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "button",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 567246272,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4404455,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "the URL should be \"http://localhost:9090/#/favorites/movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/favorites/movies",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_url_should_be(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 68567,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "that we know the angular element with the \"repeater\" named \"movie in movies\" as \"movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "repeater",
+                  "offset": 43
+                },
+                {
+                  "val": "movie in movies",
+                  "offset": 60
+                },
+                {
+                  "val": "movies",
+                  "offset": 81
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 30648805,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "there should be 5 elements in repeater element \"movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 16
+                },
+                {
+                  "val": "movies",
+                  "offset": 48
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.there_should_be__elements_in_repeater(int,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 60,
+        "name": "Watch my favorite series",
+        "description": "",
+        "id": "auto-tests-of-the-demo-site;watch-my-favorite-series",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 325314007,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 20872005,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 235895,
+              "status": "passed"
+            },
+            "line": 63,
+            "name": "that we know the angular element with the \"options\" named \"types.name for types in types.availableTypes track by types.id\" as \"favorites\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "options",
+                  "offset": 43
+                },
+                {
+                  "val": "types.name for types in types.availableTypes track by types.id",
+                  "offset": 59
+                },
+                {
+                  "val": "favorites",
+                  "offset": 127
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 147350981,
+              "status": "passed"
+            },
+            "line": 64,
+            "name": "choose the 2nd angular option \"favorites\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 11
+                },
+                {
+                  "val": "favorites",
+                  "offset": 31
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.choose_the_angular_option(int,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 108029,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "that we know the element with the \"id\" named \"favorites-button\" as \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "favorites-button",
+                  "offset": 46
+                },
+                {
+                  "val": "button",
+                  "offset": 68
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 104834782,
+              "status": "passed"
+            },
+            "line": 66,
+            "name": "click the element \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "button",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 563958933,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 9639322,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "the URL should be \"http://localhost:9090/#/favorites/series\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/favorites/series",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_url_should_be(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 114932,
+              "status": "passed"
+            },
+            "line": 69,
+            "name": "that we know the angular element with the \"repeater\" named \"movie in movies\" as \"series\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "repeater",
+                  "offset": 43
+                },
+                {
+                  "val": "movie in movies",
+                  "offset": 60
+                },
+                {
+                  "val": "series",
+                  "offset": 81
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 38043737,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "there should be 5 elements in repeater element \"series\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 16
+                },
+                {
+                  "val": "series",
+                  "offset": 48
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.there_should_be__elements_in_repeater(int,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Auto tests of the Demo Site",
+    "description": "",
+    "id": "auto-tests-of-the-demo-site",
+    "keyword": "Feature",
+    "uri": "se.vimatt/angular/auto_tests.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Demonstrating the waitForAngular function",
+        "description": "",
+        "id": "testing-and-demoing-the-application-on-the-angular-demo-site;demonstrating-the-waitforangular-function",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 346296331,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 67501,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "that we know the element with the \"id\" named \"favorites-button\" as \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "favorites-button",
+                  "offset": 46
+                },
+                {
+                  "val": "button",
+                  "offset": 68
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 106027130,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "click the element \"button\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "button",
+                  "offset": 19
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.click_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 567491021,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 42428563,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the first cell in the table should be \"Fargo\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Fargo",
+                  "offset": 39
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_first_cell_in_the_table_should_be(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "Functionality of byModel function",
+        "description": "",
+        "id": "testing-and-demoing-the-application-on-the-angular-demo-site;functionality-of-bymodel-function",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 351140551,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8835630,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 272777,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "that we know the angular element with the \"model\" named \"search\" as \"input1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "model",
+                  "offset": 43
+                },
+                {
+                  "val": "search",
+                  "offset": 57
+                },
+                {
+                  "val": "input1",
+                  "offset": 69
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 150774291,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "input \"Fargo\" to the angular element \"input1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Fargo",
+                  "offset": 7
+                },
+                {
+                  "val": "input1",
+                  "offset": 38
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.input_to_the_angular_element(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 131276,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "that we know the element with the \"id\" named \"search-field\" as \"input2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "search-field",
+                  "offset": 46
+                },
+                {
+                  "val": "input2",
+                  "offset": 64
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 166235935,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "the attribute \"value\" of \"input2\" should be \"Fargo\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "value",
+                  "offset": 15
+                },
+                {
+                  "val": "input2",
+                  "offset": 26
+                },
+                {
+                  "val": "Fargo",
+                  "offset": 45
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_attribute_of_should_be(String,String,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 18,
+        "name": "Functionality of byBinding function",
+        "description": "",
+        "id": "testing-and-demoing-the-application-on-the-angular-demo-site;functionality-of-bybinding-function",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 287410984,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 35353712,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 633163,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "that we know the angular element with the \"binding\" named \"search\" as \"search\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "binding",
+                  "offset": 43
+                },
+                {
+                  "val": "search",
+                  "offset": 59
+                },
+                {
+                  "val": "search",
+                  "offset": 71
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 46673832,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "the text of the angular element \"search\" should be \"You are searching for a MOVIE:\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "search",
+                  "offset": 33
+                },
+                {
+                  "val": "You are searching for a MOVIE:",
+                  "offset": 52
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_angular_element_should_be(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 84086,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "that we know the element with the \"id\" named \"search-field\" as \"input\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "search-field",
+                  "offset": 46
+                },
+                {
+                  "val": "input",
+                  "offset": 64
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 504924533,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "input \"Men in Black\" to the element \"input\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Men in Black",
+                  "offset": 7
+                },
+                {
+                  "val": "input",
+                  "offset": 37
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.input_to_the_element(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 72981196,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "the text of the angular element \"search\" should be \"You are searching for a MOVIE: Men in Black\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "search",
+                  "offset": 33
+                },
+                {
+                  "val": "You are searching for a MOVIE: Men in Black",
+                  "offset": 52
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_angular_element_should_be(String,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 27,
+        "name": "Functionality of byOptions function",
+        "description": "",
+        "id": "testing-and-demoing-the-application-on-the-angular-demo-site;functionality-of-byoptions-function",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 289346535,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "that we navigate to localhost",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to_localhost()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 11349021,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 92867,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "that we know the angular element with the \"options\" named \"types.name for types in types.availableTypes track by types.id\" as \"radio-options\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "options",
+                  "offset": 43
+                },
+                {
+                  "val": "types.name for types in types.availableTypes track by types.id",
+                  "offset": 59
+                },
+                {
+                  "val": "radio-options",
+                  "offset": 127
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 67492941,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "the text of the 1st element of \"radio-options\" should be \"movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 16
+                },
+                {
+                  "val": "radio-options",
+                  "offset": 32
+                },
+                {
+                  "val": "movies",
+                  "offset": 58
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_st_element_should_be(int,String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 64200490,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "the text of the 2nd element of \"radio-options\" should be \"series\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 16
+                },
+                {
+                  "val": "radio-options",
+                  "offset": 32
+                },
+                {
+                  "val": "series",
+                  "offset": 58
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_st_element_should_be(int,String,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 34,
+        "name": "Functionality of byRepeater function",
+        "description": "",
+        "id": "testing-and-demoing-the-application-on-the-angular-demo-site;functionality-of-byrepeater-function",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 50212557,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "that we navigate to \"http://localhost:9090/#/favorites/movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/favorites/movies",
+                  "offset": 21
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 541301105,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 68168,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "that we know the angular element with the \"repeater\" named \"movie in movies\" as \"movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "repeater",
+                  "offset": 43
+                },
+                {
+                  "val": "movie in movies",
+                  "offset": 60
+                },
+                {
+                  "val": "movies",
+                  "offset": 81
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_angular_element_named(String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13773882,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "we should have 5 elements in \"movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 15
+                },
+                {
+                  "val": "movies",
+                  "offset": 30
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.we_should_have_elements_in(int,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 40,
+        "name": "Functionality of byRepeaterRow function",
+        "description": "",
+        "id": "testing-and-demoing-the-application-on-the-angular-demo-site;functionality-of-byrepeaterrow-function",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 269957262,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "that we navigate to \"http://localhost:9090/#/favorites/movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/favorites/movies",
+                  "offset": 21
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 533728515,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 129908,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "that we know the repeater element \"movie in movies\" as \"movies\" with row 1",
+            "match": {
+              "arguments": [
+                {
+                  "val": "movie in movies",
+                  "offset": 35
+                },
+                {
+                  "val": "movies",
+                  "offset": 56
+                },
+                {
+                  "val": "1",
+                  "offset": 73
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_repeater_element(String,String,int)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 45818679,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "the text of the angular element \"movies\" should be \"Fargo 1996 Crime, Drama, Thriller 98 min 8.2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "movies",
+                  "offset": 33
+                },
+                {
+                  "val": "Fargo 1996 Crime, Drama, Thriller 98 min 8.2",
+                  "offset": 52
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_angular_element_should_be(String,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 46,
+        "name": "Functionality of byRepeaterCell function",
+        "description": "",
+        "id": "testing-and-demoing-the-application-on-the-angular-demo-site;functionality-of-byrepeatercell-function",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 249379471,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "that we navigate to \"http://localhost:9090/#/favorites/movies\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://localhost:9090/#/favorites/movies",
+                  "offset": 21
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_navigate_to(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 539223589,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "we wait for angular",
+            "match": {
+              "location": "RunnerTest$StepDefinitions.we_wait_for_angular()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 147115,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "that we know the repeater element \"movie in movies\" as \"movies\" with row 1 and column 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "movie in movies",
+                  "offset": 35
+                },
+                {
+                  "val": "movies",
+                  "offset": 56
+                },
+                {
+                  "val": "1",
+                  "offset": 73
+                },
+                {
+                  "val": "2",
+                  "offset": 86
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.that_we_know_the_repeater_element_as_with_row_number_and_column(String,String,int,int)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 41910098,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "the text of the angular element \"movies\" should be \"1996\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "movies",
+                  "offset": 33
+                },
+                {
+                  "val": "1996",
+                  "offset": 52
+                }
+              ],
+              "location": "RunnerTest$StepDefinitions.the_text_of_the_angular_element_should_be(String,String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Testing and demoing the application on the angular demo site",
+    "description": "",
+    "id": "testing-and-demoing-the-application-on-the-angular-demo-site",
+    "keyword": "Feature",
+    "uri": "se.vimatt/angular/demo_site_testing.feature"
+  }
+]
