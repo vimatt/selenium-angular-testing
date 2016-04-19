@@ -5,8 +5,8 @@ import org.openqa.selenium.SearchContext;
 /**
  * For finding the AngularJS specific element row within the repeater
  * Extends BaseBy which provides the getObject method
- *
- * Created by victormattsson on 2016-04-05.
+ * <p>
+ * Created by victor mattsson on 2016-04-05.
  */
 public class ByAngularRepeaterRow extends BaseBy {
 
@@ -27,7 +27,7 @@ public class ByAngularRepeaterRow extends BaseBy {
     //with Selenium's cssSelector and the provided string which is the name of the repeater element we
     //want to find, and returns it. The integer row is the index of which element inside the repeater wa want to find
     protected Object getObject(SearchContext context) {
-        return context.findElements(cssSelector("[ng-repeat='"+ repeater +"']:nth-child("+ row + ")"));
+        return context.findElements(cssSelector("[ng-repeat='" + repeater + "']:nth-child(" + row + ")"));
     }
 
 }

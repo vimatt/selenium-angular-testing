@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by victormattsson on 2016-03-22.
+ * Created by victor mattsson on 2016-03-22.
  */
 public class MediaService {
 

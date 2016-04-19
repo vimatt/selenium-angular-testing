@@ -5,8 +5,8 @@ import org.openqa.selenium.SearchContext;
 /**
  * For finding the AngularJS specific element options
  * Extends BaseBy which provides the getObject method
- *
- * Created by victormattsson on 2016-04-05.
+ * <p>
+ * Created by victor mattsson on 2016-04-05.
  */
 public class ByAngularOptions extends BaseBy {
 

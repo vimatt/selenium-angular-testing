@@ -5,10 +5,10 @@ import org.openqa.selenium.SearchContext;
 /**
  * For finding the AngularJS specific element cell/column within the repeater row
  * Extends BaseBy which provides the getObject method
- *
- * Created by victormattsson on 2016-04-05.
+ * <p>
+ * Created by victor mattsson on 2016-04-05.
  */
-public class ByAngularRepeaterCell extends BaseBy{
+public class ByAngularRepeaterCell extends BaseBy {
 
     private int column;
     private int row;
@@ -27,7 +27,7 @@ public class ByAngularRepeaterCell extends BaseBy{
     //we want to find
     @Override
     protected Object getObject(SearchContext context) {
-        return context.findElements(cssSelector("[ng-repeat='"+ repeater +"']:nth-child("+ row + ") " +
-                ":nth-child("+ column + ")"));
+        return context.findElements(cssSelector("[ng-repeat='" + repeater + "']:nth-child(" + row + ") " +
+                ":nth-child(" + column + ")"));
     }
 }

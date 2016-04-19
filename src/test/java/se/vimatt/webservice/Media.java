@@ -2,8 +2,8 @@ package se.vimatt.webservice;
 
 /**
  * The plain java object which handles the information about the Media objects
- *
- * Created by victormattsson on 2016-03-22.
+ * <p>
+ * Created by victor mattsson on 2016-03-22.
  */
 public class Media {
 

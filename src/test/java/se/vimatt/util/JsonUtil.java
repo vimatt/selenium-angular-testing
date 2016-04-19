@@ -5,12 +5,13 @@ import spark.ResponseTransformer;
 
 /**
  * Class that handles the response format in our web service to Json
- *
- * Created by victormattsson on 2016-03-22.
+ * <p>
+ * Created by victor mattsson on 2016-03-22.
  */
 public class JsonUtil {
 
-    private JsonUtil() {}
+    private JsonUtil() {
+    }
 
     public static String toJson(Object object) {
         return new Gson().toJson(object);

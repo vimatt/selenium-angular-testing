@@ -5,8 +5,8 @@ import org.openqa.selenium.SearchContext;
 /**
  * For finding the AngularJS specific element repeater
  * Extends BaseBy which provides the getObject method
- *
- * Created by victormattsson on 2016-04-05.
+ * <p>
+ * Created by victor mattsson on 2016-04-05.
  */
 public class ByAngularRepeater extends BaseBy {
 
@@ -26,7 +26,7 @@ public class ByAngularRepeater extends BaseBy {
     //want to find, and returns it
     @Override
     protected Object getObject(SearchContext context) {
-        return context.findElements(cssSelector("[ng-repeat='"+ repeater +"']"));
+        return context.findElements(cssSelector("[ng-repeat='" + repeater + "']"));
     }
 
 }

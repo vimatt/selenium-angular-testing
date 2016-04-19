@@ -1,13 +1,14 @@
 package se.vimatt.angular.unit;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 import se.vimatt.angular.ByAngular;
 import se.vimatt.angular.ByAngularBinding;
 import se.vimatt.angular.ByAngularModel;
 
 /**
- * Created by victormattsson on 2016-04-14.
+ * Created by victor mattsson on 2016-04-14.
  */
 public class ByAngularTest {
 

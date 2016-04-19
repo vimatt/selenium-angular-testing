@@ -9,12 +9,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
+import se.vimatt.angular.driver.RMAngularDriver;
 import se.vimatt.util.SparkServer;
 
 import java.util.HashMap;
@@ -23,12 +21,12 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by victormattsson on 2016-03-29.
+ * Created by victor mattsson on 2016-03-29.
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"pretty"}, format = {"json:target/cucumber.json"}, features = "src/test/resources")
 public class RunnerTest {
-	
+
     private static RMAngularDriver driver;
     private static final String LOCALHOST = "http://localhost:9090";
 
@@ -196,7 +194,7 @@ public class RunnerTest {
         @And("^click the (\\d+)(?:st|nd|rd|th) angular element \"([^\"]*)\"$")
         public void clickTheNdAngularElement(int index, String element) {
             List<WebElement> elements = driver.findElements(angularAliasLocations.get(element));
-            elements.get(index-1).click();
+            elements.get(index - 1).click();
         }
 
         @Then("^there should be (\\d+) elements in repeater element \"([^\"]*)\"$")
@@ -208,7 +206,7 @@ public class RunnerTest {
         @And("^choose the (\\d+)(?:st|nd|rd|th) angular option \"([^\"]*)\"$")
         public void choose_the_angular_option(int index, String element) {
             List<WebElement> elements = driver.findElements(angularAliasLocations.get(element));
-            elements.get(index-1).click();
+            elements.get(index - 1).click();
         }
     }
 }

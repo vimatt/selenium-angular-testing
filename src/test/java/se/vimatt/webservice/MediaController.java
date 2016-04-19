@@ -7,7 +7,7 @@ import static spark.Spark.*;
 /**
  * Controller class for the Spark server to handle the requests for the webservice
  * <p>
- * Created by victormattsson on 2016-03-22.
+ * Created by victor mattsson on 2016-03-22.
  */
 public class MediaController {
 

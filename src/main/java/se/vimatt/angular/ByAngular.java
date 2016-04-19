@@ -2,11 +2,14 @@ package se.vimatt.angular;
 
 
 /**
- * Created by victormattsson on 2016-03-29.
+ * The "middle layer" class which gives us the methods that return the specific Angular elements
+ * <p>
+ * Created by victor mattsson on 2016-03-29.
  */
 public class ByAngular {
 
-    private ByAngular() {}
+    private ByAngular() {
+    }
 
     public static ByAngularModel model(String model) {
         return new ByAngularModel(model);
