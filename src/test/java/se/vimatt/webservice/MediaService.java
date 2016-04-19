@@ -17,7 +17,7 @@ import java.util.List;
 public class MediaService {
 
     private final Logger logger = LoggerFactory.getLogger(MediaService.class);
-    private final String MEDIA_FILE = "src/test/resources/media.json";
+    private static final String MEDIA_FILE = "src/test/resources/media.json";
 
     public List<Media> getAllMovies() {
         return getJsonDataAsList("movies");

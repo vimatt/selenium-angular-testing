@@ -49,7 +49,8 @@ public class RunnerTest {
     public static class StepDefinitions {
 
         private HashMap<String, By> aliasLocations = new HashMap<>();
-        private HashMap<String, BaseBy> angularAliasLocations = new HashMap<>();
+
+        /* Navigating */
 
         @Given("^that we navigate to \"([^\"]*)\"$")
         public void that_we_navigate_to(String url) {
@@ -61,24 +62,40 @@ public class RunnerTest {
             driver.get(LOCALHOST);
         }
 
-        @Then("^the title of the page should be \"([^\"]*)\"$")
-        public void the_title_of_the_page_should_be(String title) {
-            assertEquals(title, driver.getTitle());
+        /* Actions */
+
+        @Given("^input \"([^\"]*)\" to the element \"([^\"]*)\"$")
+        public void input_to_the_element(String data, String element) {
+            WebElement el = driver.findElement(aliasLocations.get(element));
+            el.click();
+            el.sendKeys(data);
         }
 
-        @Given("^we wait for angular$")
-        public void we_wait_for_angular() {
-            driver.waitforAngular();
+        @And("^we wait for (\\d+) milliseconds$")
+        public void we_wait_for_milliseconds(int millisecs) throws InterruptedException {
+            Thread.sleep(millisecs);
         }
 
-        @Then("^the first cell in the table should be \"([^\"]*)\"$")
-        public void the_first_cell_in_the_table_should_be(String title) {
-            WebElement element = driver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
-            String firstMovieTitle = element.getText();
-            assertEquals(title, firstMovieTitle);
+        @Then("^click the element \"([^\"]*)\"$")
+        public void click_the_element(String element) {
+            driver.findElement(aliasLocations.get(element)).click();
         }
 
-        @Given("^that we know the element with the \"(|id|xpath|class|css)\" named \"(.*)\" as \"([^\"]*)\"$")
+        @And("^click the (\\d+)(?:st|nd|rd|th) element \"([^\"]*)\"$")
+        public void click_the_nd_element(int index, String element) {
+            List<WebElement> elements = driver.findElements(aliasLocations.get(element));
+            elements.get(index - 1).click();
+        }
+
+        @And("^choose the (\\d+)(?:st|nd|rd|th) angular option \"([^\"]*)\"$")
+        public void choose_the_angular_option(int index, String element) {
+            List<WebElement> elements = driver.findElements(aliasLocations.get(element));
+            elements.get(index - 1).click();
+        }
+
+        /* Aliases */
+
+        @Given("^that we know the element with the \"(|id|xpath|class|css|link-text|model|binding|options|repeater)\" named \"(.*)\" as \"([^\"]*)\"$")
         public void that_we_know_the_element_named(String type, String element, String by) {
             switch (type) {
                 case "id":
@@ -93,25 +110,20 @@ public class RunnerTest {
                 case "css":
                     aliasLocations.put(by, By.cssSelector(element));
                     break;
-                default:
-                    throw new IllegalArgumentException("Unknown type: " + type);
-            }
-        }
-
-        @Given("^that we know the angular element with the \"(model|binding|options|repeater)\" named \"(.*)\" as \"([^\"]*)\"$")
-        public void that_we_know_the_angular_element_named(String type, String element, String by) {
-            switch (type) {
+                case "link-text":
+                    aliasLocations.put(by, By.linkText(element));
+                    break;
                 case "model":
-                    angularAliasLocations.put(by, ByAngular.model(element));
+                    aliasLocations.put(by, ByAngular.model(element));
                     break;
                 case "binding":
-                    angularAliasLocations.put(by, ByAngular.binding(element));
+                    aliasLocations.put(by, ByAngular.binding(element));
                     break;
                 case "options":
-                    angularAliasLocations.put(by, ByAngular.options(element));
+                    aliasLocations.put(by, ByAngular.options(element));
                     break;
                 case "repeater":
-                    angularAliasLocations.put(by, ByAngular.repeater(element));
+                    aliasLocations.put(by, ByAngular.repeater(element));
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown type: " + type);
@@ -120,12 +132,31 @@ public class RunnerTest {
 
         @Given("^that we know the repeater element \"(.*)\" as \"([^\"]*)\" with row (\\d+)$")
         public void that_we_know_the_repeater_element(String element, String by, int row) {
-            angularAliasLocations.put(by, ByAngular.repeater(element).row(row));
+            aliasLocations.put(by, ByAngular.repeater(element).row(row));
         }
 
         @Given("^that we know the repeater element \"([^\"]*)\" as \"([^\"]*)\" with row (\\d+) and column (\\d+)$")
         public void that_we_know_the_repeater_element_as_with_row_number_and_column(String element, String by, int row, int column) {
-            angularAliasLocations.put(by, ByAngular.repeater(element).row(row).column(column));
+            aliasLocations.put(by, ByAngular.repeater(element).row(row).column(column));
+        }
+
+        /* Assertions */
+
+        @Then("^the title of the page should be \"([^\"]*)\"$")
+        public void the_title_of_the_page_should_be(String title) {
+            assertEquals(title, driver.getTitle());
+        }
+
+        @Then("^the URL should be \"([^\"]*)\"$")
+        public void the_url_should_be(String URL) {
+            assertEquals(URL, driver.getCurrentUrl());
+        }
+
+        @Then("^the first cell in the table should be \"([^\"]*)\"$")
+        public void the_first_cell_in_the_table_should_be(String title) {
+            WebElement element = driver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
+            String firstMovieTitle = element.getText();
+            assertEquals(title, firstMovieTitle);
         }
 
         @Then("^the attribute \"([^\"]*)\" of \"([^\"]*)\" should be \"([^\"]*)\"$")
@@ -134,79 +165,27 @@ public class RunnerTest {
             assertEquals(expected, el.getAttribute(attribute));
         }
 
-        @Given("^input \"([^\"]*)\" to the element \"([^\"]*)\"$")
-        public void input_to_the_element(String data, String element) {
-            WebElement el = driver.findElement(aliasLocations.get(element));
-            el.click();
-            el.sendKeys(data);
-        }
-
-        @Given("^input \"([^\"]*)\" to the angular element \"([^\"]*)\"$")
-        public void input_to_the_angular_element(String data, String element) {
-            WebElement el = driver.findElement(angularAliasLocations.get(element));
-            el.click();
-            el.sendKeys(data);
-        }
-
-        @And("^we wait for (\\d+) milliseconds$")
-        public void we_wait_for_milliseconds(int millisecs) throws InterruptedException {
-            Thread.sleep(millisecs);
-        }
-
         @Then("^the text of the element \"([^\"]*)\" should be \"([^\"]*)\"$")
         public void the_text_of_the_element_should_be(String element, String expected) {
             assertEquals(expected, driver.findElement(aliasLocations.get(element)).getText());
         }
 
-        @Then("^the text of the angular element \"([^\"]*)\" should be \"([^\"]*)\"$")
-        public void the_text_of_the_angular_element_should_be(String element, String expected) {
-            assertEquals(expected, driver.findElement(angularAliasLocations.get(element)).getText());
-        }
-
-        @Then("^click the element \"([^\"]*)\"$")
-        public void click_the_element(String element) {
-            driver.findElement(aliasLocations.get(element)).click();
-        }
-
-        @Then("^click the angular element \"([^\"]*)\"$")
-        public void click_the_angular_element(String element) {
-            driver.findElement(angularAliasLocations.get(element)).click();
-        }
-
         @Then("^the text of the (\\d+)(?:st|nd|rd|th) element of \"([^\"]*)\" should be \"([^\"]*)\"$")
         public void the_text_of_the_st_element_should_be(int index, String element, String expected) {
-            List<WebElement> elements = driver.findElements(angularAliasLocations.get(element));
+            List<WebElement> elements = driver.findElements(aliasLocations.get(element));
             assertEquals(expected, elements.get(index - 1).getText());
         }
 
         @Then("^we should have (\\d+) elements in \"([^\"]*)\"$")
         public void we_should_have_elements_in(int number, String element) {
-            List<WebElement> elements = driver.findElements(angularAliasLocations.get(element));
+            List<WebElement> elements = driver.findElements(aliasLocations.get(element));
             assertEquals(number, elements.size());
-        }
-
-
-        @Then("^the URL should be \"([^\"]*)\"$")
-        public void the_url_should_be(String URL) {
-            assertEquals(URL, driver.getCurrentUrl());
-        }
-
-        @And("^click the (\\d+)(?:st|nd|rd|th) angular element \"([^\"]*)\"$")
-        public void clickTheNdAngularElement(int index, String element) {
-            List<WebElement> elements = driver.findElements(angularAliasLocations.get(element));
-            elements.get(index - 1).click();
         }
 
         @Then("^there should be (\\d+) elements in repeater element \"([^\"]*)\"$")
         public void there_should_be__elements_in_repeater(int count, String element) {
-            List<WebElement> elements = driver.findElements(angularAliasLocations.get(element));
+            List<WebElement> elements = driver.findElements(aliasLocations.get(element));
             assertEquals(count, elements.size());
-        }
-
-        @And("^choose the (\\d+)(?:st|nd|rd|th) angular option \"([^\"]*)\"$")
-        public void choose_the_angular_option(int index, String element) {
-            List<WebElement> elements = driver.findElements(angularAliasLocations.get(element));
-            elements.get(index - 1).click();
         }
     }
 }

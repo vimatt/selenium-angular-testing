@@ -25,8 +25,8 @@ import static org.junit.Assert.assertEquals;
 public class DemoSiteTest {
 
     private static RMAngularDriver rmAngularDriver;
-    private final String LOCALHOST = "http://localhost:9090";
-    private final String MOVIES_FAVORITES = LOCALHOST + "/#/favorites/movies";
+    private static final String LOCALHOST = "http://localhost:9090";
+    private static final String MOVIE_FAVORITES = LOCALHOST + "/#/favorites/movies";
 
     //Instantiates the RMAngularDriver and SparkServer before the test class runs
     @BeforeClass
@@ -61,7 +61,7 @@ public class DemoSiteTest {
      */
     @Test
     public void waitForAngularDemo() {
-        rmAngularDriver.get(MOVIES_FAVORITES);
+        rmAngularDriver.get(MOVIE_FAVORITES);
         WebElement element = rmAngularDriver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
         String firstMovieTitle = element.getText();
 
@@ -75,7 +75,7 @@ public class DemoSiteTest {
      */
     @Test(expected = NoSuchElementException.class)
     public void waitForAngularDemoBeToSlow() {
-        rmAngularDriver.get(MOVIES_FAVORITES);
+        rmAngularDriver.get(MOVIE_FAVORITES);
         //Set that we don't want to wait for angular
         rmAngularDriver.angularSync(false);
         rmAngularDriver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
@@ -130,7 +130,7 @@ public class DemoSiteTest {
      */
     @Test
     public void byAngularRepeater() {
-        rmAngularDriver.get(MOVIES_FAVORITES);
+        rmAngularDriver.get(MOVIE_FAVORITES);
         List<WebElement> repeater = rmAngularDriver.findElements(ByAngular.repeater("movie in movies"));
         assertEquals(5, repeater.size());
         String movieTitleOnFirstElement = repeater.get(0).findElement(By.cssSelector(":nth-child(1)")).getText();
@@ -145,7 +145,7 @@ public class DemoSiteTest {
      */
     @Test
     public void byAngularRepeaterRow() {
-        rmAngularDriver.get(MOVIES_FAVORITES);
+        rmAngularDriver.get(MOVIE_FAVORITES);
         WebElement firstElementOfRepeater = rmAngularDriver.findElement(ByAngular.repeater("movie in movies").row(1));
         assertEquals("Fargo 1996 Crime, Drama, Thriller 98 min 8.2", firstElementOfRepeater.getText());
     }
@@ -157,7 +157,7 @@ public class DemoSiteTest {
      */
     @Test
     public void byAngularRepeaterCell() {
-        rmAngularDriver.get(MOVIES_FAVORITES);
+        rmAngularDriver.get(MOVIE_FAVORITES);
         WebElement firstElementSecondRowOfRepeater = rmAngularDriver.findElement(ByAngular.repeater("movie in movies").row(1).column(2));
         assertEquals("1996", firstElementSecondRowOfRepeater.getText());
     }
