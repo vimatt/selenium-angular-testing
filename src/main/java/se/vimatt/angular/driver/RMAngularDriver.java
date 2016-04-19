@@ -170,6 +170,8 @@ public class RMAngularDriver implements WebDriver {
     //If the bool sync is set to true, which means that we want to wait for angular, the method that
     //does the waiting will be executed
     public void waitforAngularIfSync() {
-        if (sync) waitforAngular();
+        if (sync) {
+            waitforAngular();
+        }
     }
 }

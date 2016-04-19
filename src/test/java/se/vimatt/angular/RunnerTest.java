@@ -30,6 +30,8 @@ public class RunnerTest {
     private static RMAngularDriver driver;
     private static final String LOCALHOST = "http://localhost:9090";
 
+    private RunnerTest() {
+    }
 
     @BeforeClass
     public static void before() {
@@ -137,7 +139,6 @@ public class RunnerTest {
             WebElement el = driver.findElement(aliasLocations.get(element));
             el.click();
             el.sendKeys(data);
-//            el.sendKeys(Keys.SPACE);
         }
 
         @Given("^input \"([^\"]*)\" to the angular element \"([^\"]*)\"$")
@@ -145,7 +146,6 @@ public class RunnerTest {
             WebElement el = driver.findElement(angularAliasLocations.get(element));
             el.click();
             el.sendKeys(data);
-//            el.sendKeys(Keys.SPACE);
         }
 
         @And("^we wait for (\\d+) milliseconds$")

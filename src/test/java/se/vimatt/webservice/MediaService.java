@@ -3,6 +3,8 @@ package se.vimatt.webservice;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,6 +15,9 @@ import java.util.List;
  * Created by victor mattsson on 2016-03-22.
  */
 public class MediaService {
+
+    private final Logger logger = LoggerFactory.getLogger(MediaService.class);
+    private final String MEDIA_FILE = "src/test/resources/media.json";
 
     public List<Media> getAllMovies() {
         return getJsonDataAsList("movies");
@@ -28,7 +33,7 @@ public class MediaService {
         JsonObject object;
         try {
             JsonParser parser = new JsonParser();
-            JsonElement jsonElement = parser.parse(new FileReader("src/test/resources/media.json"));
+            JsonElement jsonElement = parser.parse(new FileReader(MEDIA_FILE));
             object = jsonElement.getAsJsonObject();
 
             for (JsonElement element : object.get(type).getAsJsonArray()) {
@@ -42,6 +47,7 @@ public class MediaService {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            logger.error("Unable to read file: " + MEDIA_FILE, e);
         }
         return media;
     }
