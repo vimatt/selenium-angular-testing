@@ -32,23 +32,27 @@ public class MediaService {
         List<Media> media = new ArrayList<>();
         JsonObject object;
         try {
+            //A JsonParser that tries to read and parse the given file to a JsonElement
             JsonParser parser = new JsonParser();
             JsonElement jsonElement = parser.parse(new FileReader(MEDIA_FILE));
             object = jsonElement.getAsJsonObject();
 
+            //Iterates through the specific JsonElement, which is determined by the given type
             for (JsonElement element : object.get(type).getAsJsonArray()) {
+                //Creates a new Media object and sets the different values from the json object
                 Media med = new Media();
                 med.setTitle(element.getAsJsonObject().get("title").getAsString());
                 med.setGenre(element.getAsJsonObject().get("genre").getAsString());
                 med.setYear(element.getAsJsonObject().get("year").getAsString());
                 med.setRuntime(element.getAsJsonObject().get("runtime").getAsString());
                 med.setRating(element.getAsJsonObject().get("rating").getAsString());
+                //Adds the media object to the media List
                 media.add(med);
             }
         } catch (IOException e) {
-            e.printStackTrace();
             logger.error("Unable to read file: " + MEDIA_FILE, e);
         }
+        //Returns the media List
         return media;
     }
 }
