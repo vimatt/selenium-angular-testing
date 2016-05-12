@@ -7,10 +7,6 @@ import org.openqa.selenium.WebElement;
 
 import se.vimatt.angular.element.AngularElement;
 
-import org.openqa.selenium.WebDriver.Navigation;
-import org.openqa.selenium.WebDriver.Options;
-import org.openqa.selenium.WebDriver.TargetLocator;
-
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +24,7 @@ public class RMAngularDriver implements WebDriver {
 
     //The constructor takes the given WebDriver and sets an implicit wait which tells
     //the driver to wait in this case for 30 secs until throwing an exception if it can't find the element.
-    //Then we cast the driver to a Selenium JavascriptExecutor
+    //Then we cast the driver to a Selenium JavascriptExecutor to be used in the waitForAngular method
     public RMAngularDriver(WebDriver driver) {
         this.driver = driver;
         driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
@@ -44,33 +40,23 @@ public class RMAngularDriver implements WebDriver {
 
     //The waitForAngular method uses the Selenium JavascriptExecutor which enables us to inject
     //javascript into our browser and in this case wait until angular has finished loading and
-    //is available for testing
+    //is available for testing. The idea of this script is taken from Protractor
     public void waitforAngular() {
-        jSExecutor.executeAsyncScript("var callback = arguments[arguments.length - 1];" +
-                "var rootSelector = 'body';" +
-                "var el = document.querySelector(rootSelector);" +
+        jSExecutor.executeAsyncScript(
+                //With the executeAsyncScript a callback is added to the list of arguments passed to my script and we
+                //find it here by fetching the last argument in the arguments list
+                //This callback must be called within the time limit for it to return with success
+                "var callback = arguments[arguments.length - 1];" +
+                //Save the body element in el variable
+                "var el = document.querySelector('body');" +
                 "    try {" +
                 "        if (window.getAngularTestability) {" +
                 "            window.getAngularTestability(el).whenStable(callback);" +
                 "            return;" +
                 "        }" +
-                //A check to see if angular is undefined, if so it throws an error
-                "        if (!window.angular) {" +
-                "            throw new Error('window.angular is undefined.  This could be either ' +" +
-                "                'because this is a non-angular page or because your test involves ' +" +
-                "                'client-side navigation, which can interfere with Protractor\\'s ' +" +
-                "                'bootstrapping.  See http://git.io/v4gXM for details');" +
-                "        }" +
                 "        if (angular.getTestability) {" +
                 "            angular.getTestability(el).whenStable(callback);" +
-                "        } else {" +
-                "            if (!angular.element(el).injector()) {" +
-                "                throw new Error('root element (' + rootSelector + ') has no injector.' +" +
-                "                    ' this may mean it is not inside ng-app.');" +
-                "            }" +
-                "            angular.element(el).injector().get('$browser')." +
-                "            notifyWhenNoOutstandingRequests(callback);" +
-                "        }" +
+                "        } " +
                 "    } catch (err) {" +
                 "        callback(err.message);" +
                 "    }");

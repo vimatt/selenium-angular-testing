@@ -7,6 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import se.vimatt.angular.ByAngular;
@@ -56,22 +57,30 @@ public class DemoSiteTest {
     }
 
     /**
+     * This test expects a NoSuchElementException to be thrown when we try to find an element we know not to exist
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void expectNoSuchElement() {
+        rmAngularDriver.get(LOCALHOST);
+        rmAngularDriver.findElement(ByAngular.model("no_such_element_exists"));
+    }
+
+    /**
      * This test displays that the waitForAngular works, since the http response on this URL
-     * is set to sleep for 500 milliseconds. Without the wait method the test would fail.
+     * is set to sleep for 500 milliseconds. Without the wait function the test would fail.
      */
     @Test
     public void waitForAngularDemo() {
         rmAngularDriver.get(MOVIE_FAVORITES);
         WebElement element = rmAngularDriver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
         String firstMovieTitle = element.getText();
-
         assertEquals(firstMovieTitle, "Fargo");
     }
 
     /**
      * This test displays that the waitForAngular works, since the http response on this URL
      * is set to sleep for 500 milliseconds. Without the wait method the test would fail.
-     * And this test will, with an expected Exception throw
+     * And this test will fail because we turn the wait off, and we expect an Exception throw
      */
     @Test(expected = NoSuchElementException.class)
     public void waitForAngularDemoBeToSlow() {
@@ -112,7 +121,7 @@ public class DemoSiteTest {
 
     /**
      * This test demonstrates the ByAngular.options function which finds the option elements by the given name
-     * and asserts the text of the first two elements(and only elements) that they are what we expect.
+     * and asserts the text of the first two (and only) elements that they are what we expect.
      */
     @Test
     public void byAngularOptions() {
@@ -161,4 +170,5 @@ public class DemoSiteTest {
         WebElement firstElementSecondRowOfRepeater = rmAngularDriver.findElement(ByAngular.repeater("movie in movies").row(1).column(2));
         assertEquals("1996", firstElementSecondRowOfRepeater.getText());
     }
+
 }

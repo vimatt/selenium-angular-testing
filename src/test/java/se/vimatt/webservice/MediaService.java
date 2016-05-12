@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class that provides the webservice data from Json file
+ *
  * Created by victor mattsson on 2016-03-22.
  */
 public class MediaService {

@@ -21,6 +21,9 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * The runner class for the cucumber tests, this class instantiates a new ChromeDriver an d starts the spåark server.
+ * Then it finds the feature files in the resources folder and runs them.
+ *
  * Created by victor mattsson on 2016-03-29.
  */
 @RunWith(Cucumber.class)
@@ -46,6 +49,10 @@ public class RunnerTest {
         SparkServer.close();
     }
 
+    /**
+     * The inner class that holds the implementation in code of the different steps
+     * that are written in the feature files
+     */
     public static class StepDefinitions {
 
         private HashMap<String, By> aliasLocations = new HashMap<>();
@@ -77,7 +84,7 @@ public class RunnerTest {
         }
 
         @Then("^click the element \"([^\"]*)\"$")
-        public void click_the_element(String element) {
+        public void click_the_element(String element) throws InterruptedException {
             driver.findElement(aliasLocations.get(element)).click();
         }
 
